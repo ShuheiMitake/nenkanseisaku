@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button[type="submit"],
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #ff6b6b; /* ピンク色 */
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"]:hover,
+        .back-button:hover {
+            background-color: #ff8787; /* 明るいピンク色 */
+            transform: scale(1.1); /* 少し大きくなる */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button::before {
+            content: "<";
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>お問い合わせページ</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">名前:</label>
+            <input type="text" name="name" id="name" required />
+        </div>
+        <div>
+            <label for="email">メールアドレス:</label>
+            <input type="email" name="email" id="email" required />
+        </div>
+        <div>
+            <label for="subject">要件:</label>
+            <input type="text" name="subject" id="subject" required />
+        </div>
+        <div>
+            <label for="message">メッセージ:</label>
+            <textarea name="message" id="message" required></textarea>
+        </div>
+        <button type="submit">問い合わせ</button>
+    </form>
+
+    <a href="/" class="back-button">戻る</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    投稿する
+{% endblock %}
+
+{% block content %}
+    <h1>投稿する</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">投稿</button>
+    </form>
+    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">トップに戻る</a>
+{% endblock %}
